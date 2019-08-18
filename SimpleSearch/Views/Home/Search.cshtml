@@ -1,0 +1,30 @@
+﻿
+@model SimpleSearch.Models.SearchResultDTO
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Search Positions for Infotrack</h2>
+
+<form asp-controller="Home" asp-action="Search" method="post">
+
+    <div>
+        Keyword:
+        <input asp-for="SearchKeyword" type="text" name="SearchKeyword" />
+        @Html.ValidationMessageFor(m => m.SearchKeyword);
+    </div>
+    <div>
+        Url:
+        <input asp-for="SearchUrl" type="url" name="SearchUrl" />
+        @Html.ValidationMessageFor(m => m.SearchUrl);
+    </div>
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+
+</form>
+
+<h6>
+    Result: @Html.DisplayFor(m => m.SearchResult)
+</h6>
+
